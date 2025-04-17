@@ -3,27 +3,36 @@ package com.codegym.quanlikhachhang.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 @Controller
 public class NewCustomerController {
-    @GetMapping("/customer")
+    private CustomerDAO customerDAO = new CustomerDAO();
+
+    @GetMapping("/customers")
     public String showCustomer(Model model) {
-        List<Integer> customerId = new ArrayList<>();
-        customerId.add(1);
-        customerId.add(2);
-        List<String> customerName = new ArrayList<>();
-        customerName.add("Nguyễn Hồng Hà");
-        customerName.add("Hoàng Văn Cừ");
-        Map<Integer, String> customerInfo = new HashMap<>();
-        customerInfo.put(customerId.get(0), customerName.get(0));
-        customerInfo.put(customerId.get(1), customerName.get(1));
-        model.addAttribute("customerInfo", customerInfo);
-        return "list";
+      List<Customer> customerList = customerDAO.getAllCustomers();
+      model.addAttribute("customerList", customerList);
+      return "list";
     }
+    // Hiển thị form chỉnh sửa khách hàng
+    @GetMapping("/customers/edit")
+    public String showEditForm(@RequestParam("id") int id, Model model) {
+        Customer customer = customerDAO.getCustomerById(id);
+        model.addAttribute("customer", customer);
+        return "edit";
+    }
+
+    // Xử lý dữ liệu chỉnh sửa sau khi submit
+    @PostMapping("/customers/update")
+    public String updateCustomer(@ModelAttribute("customer") Customer customer) {
+        customerDAO.updateCustomer(customer);
+        return "redirect:/customers";
+    }
+
 }
