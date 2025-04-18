@@ -1,6 +1,37 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <style>table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007BFF;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }</style>
     <title>Customer List</title>
 </head>
 <body>
