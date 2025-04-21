@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="fragments :: head('Chi tiết sản phẩm')"></head>
 <body>
-<div th:replace="fragments :: content">
-  <h1>Chi tiết sản phẩm</h1>
-  <p>ID: <span th:text="${product.id}"></span></p>
-  <p>Tên: <span th:text="${product.name}"></span></p>
-  <p>Giá: <span th:text="${product.price}"></span></p>
-  <p>Số lượng: <span th:text="${product.currentQuantity}"></span></p>
-
-  <a th:href="@{/products}">Quay lại danh sách</a>
-</div>
+<h2>Chi tiết sản phẩm</h2>
+<p><strong>ID:</strong> <span th:text="${product.id}"></span></p>
+<p><strong>Tên:</strong> <span th:text="${product.name}"></span></p>
+<p><strong>Giá:</strong> <span th:text="${product.price}"></span></p>
+<p><strong>Mô tả:</strong> <span th:text="${product.description}"></span></p>
+<p><strong>Nhà sản xuất:</strong> <span th:text="${product.manufacturer}"></span></p>
+<a th:href="@{/products}">Quay lại</a>
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

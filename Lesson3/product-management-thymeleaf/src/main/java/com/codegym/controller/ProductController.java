@@ -8,23 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-
 @Controller
 @RequestMapping("/products")
 public class ProductController {
 
-    private final IProductService productService;
-
-    public ProductController() {
-        productService = new ProductServiceImp();
-    }
+    private final IProductService productService = new ProductServiceImp();
 
     @GetMapping("")
-    public String getAllProducts(Model model) {
+    public String list(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "list";
     }
@@ -36,20 +27,19 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String createProduct(@ModelAttribute Product product) {
+    public String create(@ModelAttribute Product product) {
         productService.saveProduct(product);
         return "redirect:/products";
     }
 
     @GetMapping("/{id}/update")
     public String showUpdateForm(@PathVariable int id, Model model) {
-        Product product = productService.getProductById(id);
-        model.addAttribute("product", product);
+        model.addAttribute("product", productService.getProductById(id));
         return "update";
     }
 
     @PostMapping("/{id}/update")
-    public String updateProduct(@PathVariable int id, @ModelAttribute Product product) {
+    public String update(@ModelAttribute Product product, @PathVariable int id) {
         product.setId(id);
         productService.updateProduct(product);
         return "redirect:/products";
@@ -57,35 +47,30 @@ public class ProductController {
 
     @GetMapping("/{id}/delete")
     public String showDeleteForm(@PathVariable int id, Model model) {
-        Product product = productService.getProductById(id);
-        model.addAttribute("product", product);
+        model.addAttribute("product", productService.getProductById(id));
         return "delete";
     }
 
     @PostMapping("/delete")
-    public String deleteProduct(@ModelAttribute Product product, RedirectAttributes redirectAttributes) {
+    public String delete(@ModelAttribute Product product, RedirectAttributes redirect) {
         productService.deleteProduct(product);
-        redirectAttributes.addFlashAttribute("message", "Product deleted successfully");
+        redirect.addFlashAttribute("message", "Xoá thành công!");
         return "redirect:/products";
     }
 
-    // Tìm kiếm sản phẩm
     @GetMapping("/search")
-    public String searchProduct(@RequestParam("name") String name, Model model) {
+    public String search(@RequestParam String name, Model model) {
         Product product = productService.getProductByName(name);
         if (product != null) {
-            model.addAttribute("products", Collections.singletonList(product));
-            model.addAttribute("message", "Sản phẩm tìm thấy!");
-        } else {
-            model.addAttribute("message", "Không tìm thấy sản phẩm nào!");
+            model.addAttribute("products", java.util.Arrays.asList(product));
         }
+        model.addAttribute("message", (product != null) ? "Tìm thấy sản phẩm" : "Không tìm thấy sản phẩm");
         return "search";
     }
 
     @GetMapping("/{id}/view")
-    public String viewProduct(@PathVariable int id, Model model) {
-        Product product = productService.getProductById(id);
-        model.addAttribute("product", product);
+    public String view(@PathVariable("id") int id, Model model) {
+        model.addAttribute("product", productService.getProductById(id));
         return "view";
     }
 }

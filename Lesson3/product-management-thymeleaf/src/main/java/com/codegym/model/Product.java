@@ -4,17 +4,9 @@ public class Product {
     private int id;
     private String name;
     private double price;
-    private int currentQuantity;
+    private String description;
+    private String manufacturer;
 
-    public Product(int id, String name, double price, int currentQuantity) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.currentQuantity = currentQuantity;
-    }
-    public Product() {
-
-    }
     public int getId() {
         return id;
     }
@@ -39,11 +31,19 @@ public class Product {
         this.price = price;
     }
 
-    public int getCurrentQuantity() {
-        return currentQuantity;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCurrentQuantity(int currentQuantity) {
-        this.currentQuantity = currentQuantity;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 }

@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="fragments :: head('Cập nhật sản phẩm')"></head>
 <body>
-<div th:replace="fragments :: content">
-  <h2>Cập nhật sản phẩm</h2>
-
-  <form th:action="@{'/products/' + ${product.id} + '/update'}" method="post">
-    <div class="form-group">
-      <label for="name">Tên sản phẩm</label>
-      <input type="text" id="name" name="name" class="form-control" th:value="${product.name}">
-    </div>
-    <div class="form-group">
-      <label for="price">Giá</label>
-      <input type="number" id="price" name="price" class="form-control" th:value="${product.price}">
-    </div>
-    <div class="form-group">
-      <label for="currentQuantity">Số lượng</label>
-      <input type="number" id="currentQuantity" name="currentQuantity" class="form-control" th:value="${product.currentQuantity}">
-    </div>
-    <button type="submit" class="btn btn-warning">Cập nhật</button>
-  </form>
-  <a th:href="@{/products}">Quay lại</a>
-</div>
+<h2>Cập nhật sản phẩm</h2>
+<form th:action="@{'/products/' + ${product.id} + '/update'}" th:object="${product}" method="post">
+  <label>Tên:</label>
+  <input type="text" th:field="*{name}" required><br>
+  <label>Giá:</label>
+  <input type="number" th:field="*{price}" step="0.01" required><br>
+  <label>Mô tả:</label>
+  <textarea th:field="*{description}"></textarea><br>
+  <label>Nhà sản xuất:</label>
+  <input type="text" th:field="*{manufacturer}"><br>
+  <button type="submit">Cập nhật</button>
+</form>
+<a th:href="@{/products}">Quay lại</a>
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>
