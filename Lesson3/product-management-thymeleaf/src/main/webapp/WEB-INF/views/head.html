@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Thymeleaf Example</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom inline styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .alert-success {
+            color: green;
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .btn-primary, .btn-warning, .btn-danger, .btn-info {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="head(title)">
+    <title th:text="${title}">Thymeleaf Example</title>
+</div>
+</body>
+</html>

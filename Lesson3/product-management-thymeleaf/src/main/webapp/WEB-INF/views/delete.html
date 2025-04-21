@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head('Xóa sản phẩm')"></head>
+<body>
+<div th:replace="fragments :: content">
+  <h2>Xóa sản phẩm</h2>
+  <p>Are you sure you want to delete this product?</p>
+
+  <form th:action="@{/products/delete}" method="post">
+    <input type="hidden" name="id" th:value="${product.id}">
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+  </form>
+  <a th:href="@{/products}">Cancel</a>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
