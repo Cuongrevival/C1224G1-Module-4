@@ -23,7 +23,8 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
-@Bean
+
+    @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setApplicationContext(applicationContext);
@@ -33,12 +34,14 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         resolver.setCharacterEncoding("UTF-8");
         return resolver;
     }
+
     @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());
         return engine;
     }
+
     @Bean
     public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
@@ -46,4 +49,5 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         resolver.setCharacterEncoding("UTF-8");
         return resolver;
     }
+
 }

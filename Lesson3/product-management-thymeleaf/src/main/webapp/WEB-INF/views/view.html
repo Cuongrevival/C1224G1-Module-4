@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments :: head('Chi tiết sản phẩm')"></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
 <body>
 <h2>Chi tiết sản phẩm</h2>
 <p><strong>ID:</strong> <span th:text="${product.id}"></span></p>
@@ -9,6 +13,6 @@
 <p><strong>Mô tả:</strong> <span th:text="${product.description}"></span></p>
 <p><strong>Nhà sản xuất:</strong> <span th:text="${product.manufacturer}"></span></p>
 <a th:href="@{/products}">Quay lại</a>
-<footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>

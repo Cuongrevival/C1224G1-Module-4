@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kết quả khai báo</title>
+  <style>
+    body {
+      font-family: Arial,sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      color: green;
+    }
+
+    .field {
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div th:if="${declaration != null}">
+    <h2>Thông tin khai báo</h2>
+    <div class="field"><span class="label">Họ tên:</span> <span th:text="${declaration.name}"></span></div>
+    <div class="field"><span class="label">Ngày sinh:</span> <span th:text="${declaration.birth}"></span></div>
+    <div class="field"><span class="label">Giới tính:</span> <span th:text="${declaration.gender}"></span></div>
+    <div class="field"><span class="label">Quốc tịch:</span> <span th:text="${declaration.nationality}"></span>
+    </div>
+    <div class="field"><span class="label">CMND/CCCD:</span> <span th:text="${declaration.id}"></span></div>
+    <div class="field"><span class="label">Phương tiện:</span> <span th:text="${declaration.vehicle}"></span></div>
+    <div class="field"><span class="label">Biển số:</span> <span th:text="${declaration.vehicleId}"></span></div>
+    <div class="field"><span class="label">Ngày đi:</span> <span th:text="${declaration.startDate}"></span></div>
+    <div class="field"><span class="label">Ngày về:</span> <span th:text="${declaration.endDate}"></span></div>
+    <div class="field"><span class="label">Nơi đã đi qua:</span> <span th:text="${declaration.visitedPlace}"></span>
+    </div>
+    <div class="field"><span class="label">Địa chỉ:</span> <span th:text="${declaration.address}"></span></div>
+    <div class="field"><span class="label">Điện thoại:</span> <span th:text="${declaration.phone}"></span></div>
+    <div class="field"><span class="label">Email:</span> <span th:text="${declaration.email}"></span></div>
+
+    <div class="field">
+      <span class="label">Triệu chứng:</span>
+      <ul>
+        <li th:each="s : ${declaration.symptomList}" th:text="${s}"></li>
+      </ul>
+    </div>
+
+    <div class="field">
+      <span class="label">Lịch sử phơi nhiễm:</span>
+      <ul>
+        <li th:each="e : ${declaration.exposureHistoryList}" th:text="${e}"></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

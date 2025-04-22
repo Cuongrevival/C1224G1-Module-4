@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments :: head('Xoá sản phẩm')"></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý sản phẩm</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
 <body>
 <h2>Bạn có chắc muốn xoá sản phẩm này?</h2>
 <p><strong>Tên:</strong> <span th:text="${product.name}"></span></p>
@@ -10,6 +14,6 @@
   <button type="submit">Xoá</button>
 </form>
 <a th:href="@{/products}">Quay lại</a>
-<footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>

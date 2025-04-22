@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <title>Khai báo y tế</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 600px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      display: block;
+      margin-left: 15px;
+    }
+
+    .required {
+      color: red;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Khai báo y tế</h2>
+
+  <form th:action="@{/control}" th:object="${declaration}" method="post">
+    <label>Họ tên <span class="required">*</span>
+      <input type="text" th:field="*{name}" />
+    </label>
+
+    <label>Ngày sinh <span class="required">*</span>
+      <input type="text" th:field="*{birth}" />
+    </label>
+
+    <label>Giới tính <span class="required">*</span>
+      <input type="text" th:field="*{gender}" />
+    </label>
+
+    <label>Quốc tịch <span class="required">*</span>
+      <input type="text" th:field="*{nationality}" />
+    </label>
+
+    <label>Số CMND/CCCD <span class="required">*</span>
+      <input type="text" th:field="*{id}" />
+    </label>
+
+    <label>Phương tiện <span class="required">*</span>
+      <input type="text" th:field="*{vehicle}" />
+    </label>
+
+    <label>Biển số/ID phương tiện:
+      <input type="text" th:field="*{vehicleId}" />
+    </label>
+
+    <label>Ngày đi <span class="required">*</span>
+      <input type="date" th:field="*{startDate}" />
+    </label>
+
+    <label>Ngày về <span class="required">*</span>
+      <input type="date" th:field="*{endDate}" />
+    </label>
+
+    <label>Nơi đã đi qua <span class="required">*</span>
+      <input type="text" th:field="*{visitedPlace}" />
+    </label>
+
+    <label>Tỉnh/Thành <span class="required">*</span>
+      <input type="text" th:field="*{province}" />
+    </label>
+
+    <label>Quận/Huyện <span class="required">*</span>
+      <input type="text" th:field="*{district}" />
+    </label>
+
+    <label>Xã/Phường <span class="required">*</span>
+      <input type="text" th:field="*{commune}" />
+    </label>
+
+    <label>Địa chỉ cụ thể <span class="required">*</span>
+      <input type="text" th:field="*{address}" />
+    </label>
+
+    <label>Số điện thoại <span class="required">*</span>
+      <input type="text" th:field="*{phone}" />
+    </label>
+
+    <label>Email:
+      <input type="email" th:field="*{email}" />
+    </label>
+
+    <label>Triệu chứng <span class="required">*</span></label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" th:field="*{symptomList}" value="Sốt" /> Sốt</label>
+      <label><input type="checkbox" th:field="*{symptomList}" value="Ho" /> Ho</label>
+      <label><input type="checkbox" th:field="*{symptomList}" value="Khó thở" /> Khó thở</label>
+      <label><input type="checkbox" th:field="*{symptomList}" value="Đau họng" /> Đau họng</label>
+      <label><input type="checkbox" th:field="*{symptomList}" value="Nôn" /> Nôn</label>
+      <label><input type="checkbox" th:field="*{symptomList}" value="Tiêu chảy" /> Tiêu chảy</label>
+      <label><input type="checkbox" th:field="*{symptomList}" value="Phát ban" /> Phát ban</label>
+    </div>
+
+    <label>Lịch sử phơi nhiễm trong vòng 14 ngày:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" th:field="*{exposureHistoryList}" value="Tiếp xúc F0" /> Tiếp xúc F0</label>
+      <label><input type="checkbox" th:field="*{exposureHistoryList}" value="Tiếp xúc người nghi nhiễm" /> Tiếp xúc người nghi nhiễm</label>
+    </div>
+
+    <button type="submit">Gửi tờ khai</button>
+  </form>
+</div>
+</body>
+</html>
