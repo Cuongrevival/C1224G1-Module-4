@@ -1,19 +1,26 @@
 package com.example.model;
+import javax.persistence.Entity;
+import javax.persistence.*;
 
+@Entity
+@Table (name="customer")
 public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String email;
     private String address;
+
+    public Customer() {
+    }
 
     public Customer(int id, String name, String email, String address) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;
-    }
-
-    public Customer() {
     }
 
     public int getId() {
