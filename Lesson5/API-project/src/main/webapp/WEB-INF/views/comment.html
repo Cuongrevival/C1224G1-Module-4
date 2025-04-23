@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NASA Image of the Day</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        img { max-width: 100%; margin-bottom: 20px; }
+        form { margin-bottom: 20px; }
+        textarea { width: 100%; height: 100px; }
+        .comment-box { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+<h1>NASA - Image of the Day</h1>
+<img id="img-of-the-day" alt="Image of the Day">
+
+<h2>Leave Your Feedback</h2>
+<form id="comment-form">
+    <label>Author:</label><br>
+    <input type="text" id="author" required><br><br>
+
+    <label>Comment:</label><br>
+    <textarea id="comment" required></textarea><br><br>
+
+    <label>Rating:</label><br>
+    <select id="rating" required>
+        <option value="1">1 - Poor</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
+    </select><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h3>Today's Comments</h3>
+<div id="comments-list"></div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const apiKey = '[[${apiKey}]]';
+    const nasaUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+    fetch(nasaUrl)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('img-of-the-day').src = data.url;
+        });
+
+    document.getElementById('comment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const author = document.getElementById('author').value;
+        const comment = document.getElementById('comment').value;
+        const rating = parseInt(document.getElementById('rating').value);
+
+        fetch('/submit-comment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ author, comment, rating })
+        }).then(() => {
+            document.getElementById('comment-form').reset();
+            loadComments();
+        });
+    });
+
+    function loadComments() {
+        fetch('/get-comments')
+            .then(res => res.json())
+            .then(comments => {
+                const container = document.getElementById('comments-list');
+                container.innerHTML = '';
+                comments.forEach(c => {
+                    const div = document.createElement('div');
+                    div.classList.add('comment-box');
+                    div.innerHTML = `
+                        <p><strong>${c.author}</strong> (Rating: ${c.rating})</p>
+                        <p>${c.comment}</p>
+                        <button onclick="likeComment(${c.id})">👍 Like (${c.likes})</button>
+                    `;
+                    container.appendChild(div);
+                });
+            });
+    }
+
+    function likeComment(commentId) {
+        fetch('/like-comment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: commentId })
+        }).then(() => loadComments());
+    }
+
+    loadComments();
+    /*]]>*/
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Nghe nhạc</title>
+</head>
+<body>
+<h2 th:text="${music.name}"></h2>
+<p><b>Nghệ sĩ:</b> <span th:text="${music.artist}"></span></p>
+<p><b>Thể loại:</b> <span th:text="${music.genre}"></span></p>
+
+<audio controls>
+  <source th:src="@{/${music.filePath}}" type="audio/mpeg">
+</audio>
+
+<br/><br/>
+<a th:href="@{/music}">Quay lại danh sách</a>
+</body>
+</html>
