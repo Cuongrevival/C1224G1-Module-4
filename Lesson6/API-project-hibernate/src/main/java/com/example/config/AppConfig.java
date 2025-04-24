@@ -1,8 +1,6 @@
-package com.codegym.config;
+package com.example.config;
 
-import com.codegym.repository.BlogRepository;
-import com.codegym.repository.IBlogRepository;
-import com.codegym.service.BlogService;
+import com.example.service.FeedbackDAO;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +16,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
@@ -33,8 +30,8 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.codegym")
-public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAware {
+@ComponentScan(basePackages = "com.example")
+public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext applicationContext;
 
     @Override
@@ -78,7 +75,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan("com.codegym.model");
+        entityManagerFactoryBean.setPackagesToScan("com.example.model");
         JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
         entityManagerFactoryBean.setJpaProperties(additionalProperties());
@@ -89,7 +86,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/blogs?createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/API_hibernate?createIfNotExists=true&serverTimezone=UTC");
         dataSource.setUsername("root");
         dataSource.setPassword("Doyoucopy123");
         return dataSource;
@@ -106,10 +103,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public void configureViewResolvers(org.springframework.web.servlet.config.annotation.ViewResolverRegistry registry) {
         registry.viewResolver(thymeleafViewResolver());
     }
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-    }
+
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
@@ -118,11 +112,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         return transactionManager;
     }
     @Bean
-    public IBlogRepository blogRepository(){
-        return new BlogRepository();
-    }
-    @Bean
-    public BlogService blogService(){
-        return new BlogService(new BlogRepository());
+    public FeedbackDAO feedbackDAO() {
+        return new FeedbackDAO();
     }
 }
