@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <title>Danh sách blog</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Danh sách blog</h1>
+<a th:href="@{/blog/create}">+ Viết blog mới</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Tiêu đề</th>
+        <th>Tác giả</th>
+        <th>Ngày tạo</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.authorName}"></td>
+        <td th:text="${#dates.format(blog.createdAt, 'dd/MM/yyyy')}"></td>
+        <td>
+            <a th:href="@{'/blog/' + ${blog.id}}">Xem</a> |
+            <a th:href="@{'/blog/' + ${blog.id} + '/edit'}">Sửa</a> |
+            <a th:href="@{'/blog/' + ${blog.id} + '/delete'}"
+               onclick="return confirm('Bạn chắc chắn muốn xoá blog này?');">Xoá</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
