@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Customer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
+
+    h3 {
+      color: #333;
+    }
+
+    a {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+
+    #container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+
+    form div {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="text"], input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+<h3>Update Customer</h3>
+<p>
+  <a th:href="@{/customers}">
+    Back to customer list
+  </a>
+</p>
+<div id="container">
+  <form th:action="@{/customers/update}" th:object="${customer}"
+        method="POST" novalidate="novalidate">
+    <input type="hidden" th:field="*{id}"/>
+    <div>
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" th:field="*{firstName}"/>
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" th:field="*{lastName}">
+    </div>
+    <div>
+      <label for="phone">Email</label>
+      <input type="text" id="phone" th:field="*{phone}"/>
+    </div>
+    <div>
+      <label for="address">Address</label>
+      <input type="text" id="address" th:field="*{address}"/>
+    </div>
+    <input type="submit" value="Edit"/>
+  </form>
+</div>
+</body>
+</html>

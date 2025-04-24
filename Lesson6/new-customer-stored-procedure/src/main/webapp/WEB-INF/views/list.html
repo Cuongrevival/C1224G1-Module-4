@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>List Customer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h3 {
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .notify {
+      margin-bottom: 15px;
+      color: green;
+      font-weight: bold;
+    }
+
+    #customers {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    #customers th, #customers td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    #customers th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    #customers tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    #customers tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    p a {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+    }
+
+    p a:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+<h3>Customers</h3>
+<p>
+  <a th:href="@{/customers/create}">
+    Add new customer
+  </a>
+</p>
+
+<div class="notify">
+  <div th:if="${success}">
+    <span th:text="${success}"></span>
+  </div>
+</div>
+
+<table id = "customers">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="row,rowStat : ${customers}">
+    <td th:text="${row.getFirstName()}"></td>
+    <td th:text="${row.getLastName()}"></td>
+    <td th:text="${row.getPhone()}"></td>
+    <td th:text="${row.getAddress()}"></td>
+    <td><a th:href="@{/customers/{id}/update(id=${row.getId()})}">edit</a></td>
+    <td><a th:href="@{/customers/{id}/delete(id=${row.getId()})}">delete</a></td>
+    <td><a th:href="@{/customers/{id}/view(id=${row.getId()})}">view</a></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

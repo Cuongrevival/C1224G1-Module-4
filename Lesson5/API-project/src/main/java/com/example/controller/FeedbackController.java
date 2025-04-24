@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 @Controller
 public class FeedbackController {
@@ -28,6 +29,9 @@ public class FeedbackController {
     public String showForm(Model model) {
         Feedback feedback = new Feedback();
         model.addAttribute("feedback", feedback);
+
+        model.addAttribute("grades", Arrays.asList(1, 2, 3, 4, 5));
+
         return "home";
     }
 
