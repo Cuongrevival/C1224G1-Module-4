@@ -12,4 +12,5 @@ public interface IGeneratedRepository<T> {
     void delete(T t);
 
     void update(T t);
+    void insertCustomerByProcedure(String firstName, String lastName, String phone, String address);
 }

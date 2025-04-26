@@ -10,4 +10,5 @@ public interface ICustomerService {
     void save(Customer customer);
     void delete(Customer customer);
     void update(Customer customer);
+    void insertCustomerByProcedure(String firstName, String lastName, String phone, String address);
 }

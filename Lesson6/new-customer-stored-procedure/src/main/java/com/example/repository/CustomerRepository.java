@@ -4,6 +4,7 @@ import com.example.model.Customer;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
@@ -56,4 +57,18 @@ public class CustomerRepository implements ICustomerRepository {
             c.setAddress(customer.getAddress());
         }
     }
+    @Override
+    public void insertCustomerByProcedure(String firstName, String lastName, String phone, String address) {
+        entityManager.createStoredProcedureQuery("insert_customer")
+                .registerStoredProcedureParameter("firstName", String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("lastName", String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("phone", String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("address", String.class, ParameterMode.IN)
+                .setParameter("firstName", firstName)
+                .setParameter("lastName", lastName)
+                .setParameter("phone", phone)
+                .setParameter("address", address)
+                .execute();
+    }
+
 }

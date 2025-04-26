@@ -39,4 +39,8 @@ public class CustomerService implements ICustomerService {
     public void update(Customer customer) {
         customerRepository.update(customer);
     }
+    @Override
+    public void insertCustomerByProcedure(String firstName, String lastName, String phone, String address) {
+        customerRepository.insertCustomerByProcedure(firstName, lastName, phone, address);
+    }
 }

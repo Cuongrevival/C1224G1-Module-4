@@ -1,6 +1,9 @@
 package com.codegym.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,18 +15,21 @@ public class Blog {
     private String title;
     private String content;
     private String authorName;
-    private Date createdAt;
-    private Date updatedAt;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate createdAt;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate updatedAt;
     private String status;
     private String category;
     private String imageUrl;
 
-    public Blog(int id, String title, String content, String authorName, Date updatedAt, String status, String category, String imageUrl) {
+    public Blog(long id, String title, String content, String authorName, LocalDate createdAt, LocalDate updatedAt, String status, String category, String imageUrl) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.authorName = authorName;
-        this.createdAt = new Date();
+        this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.status = status;
         this.category = category;
@@ -65,19 +71,19 @@ public class Blog {
         this.authorName = authorName;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 

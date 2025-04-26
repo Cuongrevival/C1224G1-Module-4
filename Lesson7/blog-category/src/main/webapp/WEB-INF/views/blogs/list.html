@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <title>Danh sách bài viết</title>
+</head>
+<body>
+<h1>Danh sách bài viết</h1>
+<a th:href="@{/blogs/new}">Tạo bài viết mới</a>
+
+<form th:action="@{/blogs}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="Tìm kiếm bài viết..." />
+    <button type="submit">Tìm</button>
+</form>
+
+<form th:action="@{/blogs}" method="get">
+    <select name="categoryId">
+        <option value="">Tất cả danh mục</option>
+        <option th:each="category : ${categories}"
+                th:value="${category.id}"
+                th:text="${category.name}"
+                th:selected="${categoryId} == ${category.id}"></option>
+    </select>
+    <button type="submit">Lọc</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tiêu đề</th>
+        <th>Danh mục</th>
+        <th>Ngày tạo</th>
+        <th>Thao tác</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${blogs.content}">
+        <td th:text="${blog.id}"></td>
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.category.name}"></td>
+        <td th:text="${blog.createdDate}"></td>
+        <td>
+            <a th:href="@{/blogs/{id}(id=${blog.id})}">Xem</a> |
+            <a th:href="@{/blogs/{id}/edit(id=${blog.id})}">Sửa</a> |
+            <a th:href="@{/blogs/{id}/delete(id=${blog.id})}"
+               onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:if="${totalPages > 1}">
+    <a th:if="${currentPage > 0}"
+       th:href="@{/blogs(page=${currentPage - 1}, size=10, keyword=${keyword}, categoryId=${categoryId})}">Trước</a>
+    <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+            <a th:if="${i != currentPage}"
+               th:href="@{/blogs(page=${i}, size=10, keyword=${keyword}, categoryId=${categoryId})}"
+               th:text="${i + 1}"></a>
+            <span th:if="${i == currentPage}" th:text="${i + 1}"></span>
+        </span>
+    <a th:if="${currentPage < totalPages - 1}"
+       th:href="@{/blogs(page=${currentPage + 1}, size=10, keyword=${keyword}, categoryId=${categoryId})}">Sau</a>
+</div>
+
+<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+</body>
+</html>

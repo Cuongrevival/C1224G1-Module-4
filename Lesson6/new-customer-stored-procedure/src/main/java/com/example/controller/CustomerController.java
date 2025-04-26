@@ -64,4 +64,16 @@ public class CustomerController {
         model.addAttribute("customer", customerService.findById(id));
         return "view";
     }
+    @PostMapping("/save-proc")
+    public String saveUsingProcedure(Customer customer, RedirectAttributes redirect) {
+        customerService.insertCustomerByProcedure(
+                customer.getFirstName(),
+                customer.getLastName(),
+                customer.getPhone(),
+                customer.getAddress()
+        );
+        redirect.addFlashAttribute("success", "Inserted customer via stored procedure successfully!");
+        return "redirect:/customers";
+    }
+
 }

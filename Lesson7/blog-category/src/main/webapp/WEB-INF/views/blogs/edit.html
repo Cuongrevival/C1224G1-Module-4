@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <link rel="stylesheet" th:href="@{css/style.css}">
+  <title>Chỉnh sửa bài viết</title>
+</head>
+<body>
+<h1>Chỉnh sửa bài viết</h1>
+<form th:action="@{/blogs/{id}(id=${blog.id})}" th:object="${blog}" method="post">
+  <div>
+    <label for="id">ID:</label>
+    <input type="text" id="id" th:field="*{id}" readonly />
+  </div>
+  <div>
+    <label for="title">Tiêu đề:</label>
+    <input type="text" id="title" th:field="*{title}" />
+    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color: red;"></span>
+  </div>
+  <div>
+    <label for="content">Nội dung:</label>
+    <textarea id="content" th:field="*{content}" rows="10" cols="50"></textarea>
+    <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color: red;"></span>
+  </div>
+  <div>
+    <label for="createdDate">Ngày tạo:</label>
+    <input type="date" id="createdDate" th:field="*{createdDate}" />
+    <span th:if="${#fields.hasErrors('createdDate')}" th:errors="*{createdDate}" style="color: red;"></span>
+  </div>
+  <div>
+    <label for="categoryId">Danh mục:</label>
+    <select id="categoryId" name="categoryId">
+      <option value="">Chọn danh mục</option>
+      <option th:each="category : ${categories}"
+              th:value="${category.id}"
+              th:text="${category.name}"
+              th:selected="${blog.category} != null and ${blog.category.id} == ${category.id}"></option>
+    </select>
+  </div>
+  <button type="submit">Lưu</button>
+  <a th:href="@{/blogs}">Hủy</a>
+</form>
+<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+</body>
+</html>
