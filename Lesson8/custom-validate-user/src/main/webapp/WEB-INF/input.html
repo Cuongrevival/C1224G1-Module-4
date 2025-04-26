@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${phone}" th:action="@{/validate_phone}" method="post">
+    <table>
+        <tr>
+            <td>Phone:</td>
+            <td><input type="number" th:field="*{phoneNumber}"/></td>
+            <td style="color:red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors='*{phoneNumber}'></td>
+            <td><input type="submit" value="Validate"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -2,7 +2,7 @@ package com.example.service;
 
 import com.example.model.Blog;
 import com.example.model.Category;
-import com.example.repository.IBlogRepostory;
+import com.example.repository.IBlogRepository;
 import com.example.repository.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,11 +17,12 @@ import java.util.Optional;
 @Service
 @Transactional(rollbackOn = Exception.class)
 public class BlogService {
-    private final IBlogRepostory blogRepository;
+    private final IBlogRepository blogRepository;
+
     private final ICategoryRepository categoryRepository;
     @Autowired
-    public BlogService(IBlogRepostory blogRepostory, ICategoryRepository categoryRepository) {
-        this.blogRepository = blogRepostory;
+    public BlogService(IBlogRepository blogRepository, ICategoryRepository categoryRepository) {
+        this.blogRepository = blogRepository;
         this.categoryRepository = categoryRepository;
     }
     public Page<Blog> findAll(int page, int size){
