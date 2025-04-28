@@ -4,11 +4,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -34,9 +32,9 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan(basePackages = "org.example")
-@EnableJpaRepositories(basePackages = "org.example.repository")
+@EnableJpaRepositories("org.example.repository")
 @EnableSpringDataWebSupport
-public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
+public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext applicationContext;
 
     @Override
@@ -71,6 +69,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         return viewResolver;
     }
 
+    //JPA
     @Bean
     @Qualifier(value = "entityManager")
     public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
@@ -93,7 +92,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/login-check?createDatabaseIfNotExist=true&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/music_validate?createDatabaseIfNotExist=true&serverTimezone=UTC");
         dataSource.setUsername("root");
         dataSource.setPassword("Doyoucopy123");
         return dataSource;
@@ -111,12 +110,6 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
         return properties;
-    }
-    @Bean
-    public MessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("phone-check");
-        return messageSource;
     }
 
 }

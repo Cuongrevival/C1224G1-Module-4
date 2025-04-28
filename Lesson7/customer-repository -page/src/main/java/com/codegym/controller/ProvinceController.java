@@ -26,7 +26,7 @@ public class ProvinceController {
 
     @GetMapping
     public ModelAndView listProvince() {
-        ModelAndView modelAndView = new ModelAndView("/province/list");
+        ModelAndView modelAndView = new ModelAndView("/provinces/list");
         Iterable<Province> provinces = provinceService.findAll();
         modelAndView.addObject("provinces", provinces);
         return modelAndView;
@@ -34,7 +34,7 @@ public class ProvinceController {
 
     @GetMapping("/create")
     public ModelAndView createForm() {
-        ModelAndView modelAndView = new ModelAndView("/province/create");
+        ModelAndView modelAndView = new ModelAndView("/provinces/create");
         modelAndView.addObject("province", new Province());
         return modelAndView;
     }
@@ -51,7 +51,7 @@ public class ProvinceController {
     public ModelAndView updateForm(@PathVariable Long id) {
         Optional<Province> province = provinceService.findById(id);
         if (province.isPresent()) {
-            ModelAndView modelAndView = new ModelAndView("/province/update");
+            ModelAndView modelAndView = new ModelAndView("/provinces/update");
             modelAndView.addObject("province", province.get());
             return modelAndView;
         } else {
@@ -76,7 +76,7 @@ public class ProvinceController {
 
         Iterable<Customer> customers = customerService.findAllByProvince(provinceOptional.get());
 
-        ModelAndView modelAndView = new ModelAndView("/customer/list");
+        ModelAndView modelAndView = new ModelAndView("/customers/list");
         modelAndView.addObject("customers", customers);
         return modelAndView;
     }
