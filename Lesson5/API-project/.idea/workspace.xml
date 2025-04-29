@@ -4,26 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13307c14-d207-4628-ad75-f31b3accbd92" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/config/Init.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/model/Feedback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/service/FeedbackDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1f88b804-8af2-4cf4-8d4a-0b8108b338ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/FeedBackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/BadWordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/logger/BadWordLoggingAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Feedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/IFeedBackRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BadWordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/FeedBackService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bad-word.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bad-word.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/config/Init.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Feedback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/FeedbackDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/controller/FeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +43,15 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="customer-manage-aspect" type="f1a62948:ProjectNode" />
+                <item name="API-project" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -58,6 +66,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="HTML File" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -84,9 +93,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="2wLJl5aGAZN2i8zbdxFCwbt4Pvv" />
+  <component name="ProjectId" id="2wNqf98DqVxjU9YBvpLxV7qCtmc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -94,15 +104,13 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.Build customer-manage-aspect.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build API-project.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Tomcat Server.Tomcat 9.0.102.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Module-4/Bài tập Module 4/Lesson9/customer-manage-aspect&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -112,22 +120,22 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Module-4\Bài tập Module 4\Lesson9\customer-manage-aspect\src\main\webapp\WEB-INF\views\customer" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.102" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.102" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="hot-swap-classes" />
       <deployment>
-        <artifact name="Gradle : org.example : customer-manage-aspect-1.0-SNAPSHOT.war">
+        <artifact name="Gradle : org.example : API-project-1.0-SNAPSHOT.war">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="e0ccaef4-f0d2-4fad-8e60-dadf0307d0c5" />
+        <option name="BASE_DIRECTORY_NAME" value="b6cbba19-304e-466d-8dcf-93949130d846" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -135,7 +143,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51070" />
+        <option name="DEBUG_PORT" value="51298" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -200,7 +208,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : org.example : customer-manage-aspect-1.0-SNAPSHOT.war" />
+          <artifact name="Gradle : org.example : API-project-1.0-SNAPSHOT.war" />
         </option>
       </method>
     </configuration>
@@ -215,30 +223,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="13307c14-d207-4628-ad75-f31b3accbd92" name="Changes" comment="" />
-      <created>1745815073184</created>
+      <changelist id="1f88b804-8af2-4cf4-8d4a-0b8108b338ef" name="Changes" comment="" />
+      <created>1745892480830</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745815073184</updated>
-      <workItem from="1745815074727" duration="595000" />
-      <workItem from="1745822224807" duration="5000" />
-      <workItem from="1745822242542" duration="61000" />
-      <workItem from="1745822310280" duration="18000" />
-      <workItem from="1745822342273" duration="197000" />
-      <workItem from="1745822553409" duration="1640000" />
-      <workItem from="1745824212999" duration="1699000" />
-      <workItem from="1745825931639" duration="902000" />
-      <workItem from="1745826888485" duration="1072000" />
-      <workItem from="1745827994181" duration="1150000" />
-      <workItem from="1745829168968" duration="83000" />
-      <workItem from="1745829291303" duration="299000" />
-      <workItem from="1745829619556" duration="2639000" />
-      <workItem from="1745833333806" duration="1000" />
-      <workItem from="1745834911965" duration="8000" />
-      <workItem from="1745834926028" duration="26000" />
-      <workItem from="1745834958746" duration="3000" />
-      <workItem from="1745834974641" duration="9000" />
-      <workItem from="1745890101971" duration="44000" />
+      <updated>1745892480830</updated>
+      <workItem from="1745892482445" duration="2815000" />
+      <workItem from="1745895319141" duration="3000" />
+      <workItem from="1745895332091" duration="4694000" />
     </task>
     <servers />
   </component>

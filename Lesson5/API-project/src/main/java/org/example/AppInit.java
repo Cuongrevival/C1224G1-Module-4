@@ -1,8 +1,8 @@
-package com.example.config;
+package org.example;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class Init extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{AppConfig.class};

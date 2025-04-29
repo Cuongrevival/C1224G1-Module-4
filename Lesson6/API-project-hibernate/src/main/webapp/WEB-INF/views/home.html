@@ -20,11 +20,9 @@
     <div class="mb-3">
         <label class="form-label" for="grade">Grade:</label>
         <select id="grade" th:field="*{grade}" class="form-select" required>
-            <option value="" disabled selected>-- Select grade --</option>
-            <option th:each="i : ${grade}" th:value="${i}" th:text="${i}"></option>
+            <option th:each="g : ${grades}" th:value="${g}" th:text="${g}"></option>
         </select>
     </div>
-
     <div class="mb-3">
         <label class="form-label" for="comment">Comment:</label>
         <textarea id="comment" th:field="*{comment}" class="form-control" required></textarea>

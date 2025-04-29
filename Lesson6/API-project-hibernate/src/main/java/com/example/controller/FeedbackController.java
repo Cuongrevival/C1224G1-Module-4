@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class FeedbackController {
@@ -29,8 +30,8 @@ public class FeedbackController {
     public String showForm(Model model) {
         Feedback feedback = new Feedback();
         model.addAttribute("feedback", feedback);
-
-        model.addAttribute("grades", Arrays.asList(1, 2, 3, 4, 5));
+        List<Integer> grades = Arrays.asList(1, 2, 3, 4, 5);
+        model.addAttribute("grades", grades);
 
         return "home";
     }
@@ -47,6 +48,8 @@ public class FeedbackController {
     @GetMapping("/edit/{id}")
     public String editForm(@PathVariable int id, Model model) {
         Feedback fb = feedbackDAO.findById(id);
+        List<Integer> grades = Arrays.asList(1, 2, 3, 4, 5);
+        model.addAttribute("grades", grades);
         model.addAttribute("feedback", fb);
         return "home";
     }

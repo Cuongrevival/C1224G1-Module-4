@@ -1,4 +1,4 @@
-package com.example.model;
+package org.example.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private int grade;
     private String author;
     private String comment;
@@ -21,11 +21,11 @@ public class Feedback {
     public Feedback() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

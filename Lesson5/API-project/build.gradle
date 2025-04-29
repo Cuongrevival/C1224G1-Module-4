@@ -23,9 +23,6 @@ tasks.withType(JavaCompile) {
 
 dependencies {
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
-
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
     implementation("org.thymeleaf:thymeleaf-spring5:3.1.1.RELEASE")
     // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
@@ -50,8 +47,8 @@ dependencies {
     implementation("org.springframework:spring-webmvc:4.3.17.RELEASE")
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation("mysql:mysql-connector-java:8.0.30")
-    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
-    implementation("org.springframework.data:spring-data-jpa:1.11.12.RELEASE")
+    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.0'
+    implementation group: 'org.springframework', name: 'spring-aspects', version: '5.3.20'
 }
 
 test {
