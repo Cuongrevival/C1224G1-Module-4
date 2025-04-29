@@ -1,4 +1,4 @@
-package org.example;
+package com.example.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -30,10 +30,9 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableSpringDataWebSupport
 @EnableTransactionManagement
-@ComponentScan(basePackages = "org.example")
-@EnableJpaRepositories(basePackages = "org.example.repository")
+@ComponentScan(basePackages = "com.example")
+@EnableJpaRepositories(basePackages = "com.example.repository")
 @EnableAspectJAutoProxy
-@PropertySource("classpath:bad-word.properties")
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext applicationContext;
 
@@ -78,7 +77,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan("org.example.model");
+        entityManagerFactoryBean.setPackagesToScan("com.example.model");
         JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
         entityManagerFactoryBean.setJpaProperties(additionalProperties());
@@ -89,7 +88,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/api_hibernate?useSSL=false&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/library_service?createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
         dataSource.setPassword("Doyoucopy123");
         return dataSource;

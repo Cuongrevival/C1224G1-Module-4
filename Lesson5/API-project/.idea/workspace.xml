@@ -5,30 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f88b804-8af2-4cf4-8d4a-0b8108b338ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AppInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/FeedBackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/BadWordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/logger/BadWordLoggingAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Feedback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/IFeedBackRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BadWordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/FeedBackService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bad-word.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bad-word.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/config/Init.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Feedback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/FeedbackDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/controller/FeedbackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/controller/FeedBackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/controller/FeedBackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/model/FeedBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/model/FeedBack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/repository/IFeedBackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/repository/IFeedBackRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/service/FeedBackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/service/FeedBackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +218,8 @@
       <workItem from="1745892482445" duration="2815000" />
       <workItem from="1745895319141" duration="3000" />
       <workItem from="1745895332091" duration="4694000" />
+      <workItem from="1745901116319" duration="2000" />
+      <workItem from="1745901142838" duration="11000" />
     </task>
     <servers />
   </component>

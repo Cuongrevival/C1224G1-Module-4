@@ -4,27 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6083a50b-002d-404d-8459-a924354d0803" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/org/example/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/org/example/AppInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/org/example/controller/FeedBackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/org/example/model/Feedback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/org/example/repository/IFeedBackRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/org/example/service/FeedBackService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson5/API-project/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/config/Init.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/model/Feedback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/java/com/example/service/FeedbackDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson5/API-project/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/java/com/example/controller/FeedbackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson6/API-project-hibernate/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1f88b804-8af2-4cf4-8d4a-0b8108b338ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/config/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/controller/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/controller/BorrowCardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/controller/VisitorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/model/BorrowCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/model/Visitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/repository/IBookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/repository/IBorrowCardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/repository/IVisitorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/service/BorrowCardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lesson9/demo/src/main/java/com/example/service/VisitorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson5/API-project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AppInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AppInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/FeedBackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/FeedBackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/FeedBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/IFeedBackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/IFeedBackRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/FeedBackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/FeedBackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,11 +41,33 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="API-project" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -59,42 +86,127 @@
     &quot;accountId&quot;: &quot;2472d15b-b305-4bf8-aba8-4b3c8707488f&quot;
   }
 }</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="2wNlvpQ5nPbr5IJzvElmz8PogIN" />
+  <component name="ProjectId" id="2wNqf98DqVxjU9YBvpLxV7qCtmc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build API-project.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.102.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Module-4/Bài tập Module 4/Lesson7/API-project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.102" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.102" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
       <deployment>
         <artifact name="Gradle : org.example : API-project-1.0-SNAPSHOT.war">
           <settings>
-            <option name="CONTEXT_PATH" value="/Gradle___org_example___API_project_1_0_SNAPSHOT_war" />
+            <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
-      <server-settings />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="b6cbba19-304e-466d-8dcf-93949130d846" />
+      </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51298" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
@@ -113,15 +225,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6083a50b-002d-404d-8459-a924354d0803" name="Changes" comment="" />
-      <created>1745890146192</created>
+      <changelist id="1f88b804-8af2-4cf4-8d4a-0b8108b338ef" name="Changes" comment="" />
+      <created>1745892480830</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745890146192</updated>
-      <workItem from="1745890147386" duration="171000" />
-      <workItem from="1745891986816" duration="22000" />
-      <workItem from="1745892042474" duration="3000" />
-      <workItem from="1745895310671" duration="8000" />
+      <updated>1745892480830</updated>
+      <workItem from="1745892482445" duration="2815000" />
+      <workItem from="1745895319141" duration="3000" />
+      <workItem from="1745895332091" duration="4694000" />
+      <workItem from="1745901116319" duration="2000" />
+      <workItem from="1745901155061" duration="206000" />
+      <workItem from="1745909234769" duration="18000" />
+      <workItem from="1745909322794" duration="6000" />
+      <workItem from="1745909622560" duration="9000" />
+      <workItem from="1745909701097" duration="6000" />
     </task>
     <servers />
   </component>
