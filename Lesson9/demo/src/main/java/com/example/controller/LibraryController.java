@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import com.example.model.Book;
-import com.example.model.BorrowCard;
 import com.example.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
