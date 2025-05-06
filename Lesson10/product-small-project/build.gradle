@@ -24,7 +24,7 @@ tasks.withType(JavaCompile) {
 dependencies {
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
     // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
-    implementation("org.thymeleaf:thymeleaf-spring5:3.0.15.RELEASE")
+    implementation("org.thymeleaf:thymeleaf-spring5:3.1.1.RELEASE")
     // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.1.0")
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
