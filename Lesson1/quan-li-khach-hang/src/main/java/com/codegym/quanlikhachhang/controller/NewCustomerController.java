@@ -1,18 +1,18 @@
 package com.codegym.quanlikhachhang.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@Controller("/customers")
+@Controller
+@RequestMapping("/customers")
 public class NewCustomerController {
-    private CustomerDAO customerDAO = new CustomerDAO();
+    @Autowired
+    private CustomerDAO customerDAO;
 
     @GetMapping("/list")
     public String showCustomer(Model model) {
