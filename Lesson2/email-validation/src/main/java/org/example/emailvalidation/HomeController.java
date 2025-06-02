@@ -28,7 +28,7 @@ public class HomeController {
         boolean isValid = this.validate(email);
         if (!isValid) {
             modelMap.addAttribute("message", "Email is invalid");
-            return "home";
+            return "redirect:/home";
         }
         modelMap.addAttribute("email", email);
         return "success";
