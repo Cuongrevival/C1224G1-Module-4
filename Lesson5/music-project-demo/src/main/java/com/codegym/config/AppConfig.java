@@ -4,11 +4,13 @@ import com.codegym.dao.MusicDAO;
 import com.codegym.service.HibernateMusicService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -29,7 +31,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
-
+@PropertySource("classpath:music.properties")
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
@@ -107,11 +109,15 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         registry.viewResolver(thymeleafViewResolver());
     }
 
+    @Value("${music_file_path}")
+    private String folderPath;
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/music/**")
-                .addResourceLocations("file:/C:/Users/PC/Music/");
+        registry.addResourceHandler("/*")
+                .addResourceLocations("file:" + folderPath);
     }
+
 
     @Bean
     public CommonsMultipartResolver multipartResolver() {
@@ -136,4 +142,5 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public HibernateMusicService musicService() {
         return new HibernateMusicService();
     }
+
 }

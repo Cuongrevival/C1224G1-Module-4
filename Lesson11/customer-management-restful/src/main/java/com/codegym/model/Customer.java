@@ -1,6 +1,9 @@
 package com.codegym.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "customers")
@@ -10,7 +13,8 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,5 +45,13 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 }

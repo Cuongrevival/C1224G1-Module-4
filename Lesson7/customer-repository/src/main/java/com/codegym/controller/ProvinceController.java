@@ -15,19 +15,16 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/provinces")
 public class ProvinceController {
-    private final CustomerService customerService;
-    private final ProvinceService provinceService;
     @Autowired
-    public ProvinceController(CustomerService customerService, ProvinceService provinceService) {
-        this.customerService = customerService;
-        this.provinceService = provinceService;
-    }
+    private ProvinceService provinceService;
 
+    @Autowired
+    private CustomerService customerService;
 
     @GetMapping
     public ModelAndView listProvince() {
         ModelAndView modelAndView = new ModelAndView("/province/list");
-        Iterable<Province> provinces = provinceService.findAll();
+        Iterable<Province> provinces = provinceService.getAllProvinces();
         modelAndView.addObject("provinces", provinces);
         return modelAndView;
     }
@@ -42,39 +39,39 @@ public class ProvinceController {
     @PostMapping("/create")
     public String create(@ModelAttribute("province") Province province,
                          RedirectAttributes redirectAttributes) {
-        provinceService.save(province);
+        provinceService.saveProvince(province);
         redirectAttributes.addFlashAttribute("message", "Create new province successfully");
         return "redirect:/provinces";
     }
 
     @GetMapping("/update/{id}")
     public ModelAndView updateForm(@PathVariable Long id) {
-        Optional<Province> province = provinceService.findById(id);
+        Optional<Province> province = provinceService.getProvinceById(id);
         if (province.isPresent()) {
             ModelAndView modelAndView = new ModelAndView("/province/update");
             modelAndView.addObject("province", province.get());
             return modelAndView;
         } else {
-            return new ModelAndView("error_404");
+            return new ModelAndView("/error_404");
         }
     }
 
     @PostMapping("/update/{id}")
     public String update(@ModelAttribute("province") Province province,
                          RedirectAttributes redirect) {
-        provinceService.save(province);
+        provinceService.saveProvince(province);
         redirect.addFlashAttribute("message", "Update province successfully");
         return "redirect:/provinces";
     }
 
     @GetMapping("/view-province/{id}")
     public ModelAndView viewProvince(@PathVariable("id") Long id){
-        Optional<Province> provinceOptional = provinceService.findById(id);
+        Optional<Province> provinceOptional = provinceService.getProvinceById(id);
         if(!provinceOptional.isPresent()){
-            return new ModelAndView("error_404");
+            return new ModelAndView("/error_404");
         }
 
-        Iterable<Customer> customers = customerService.findAllByProvince(provinceOptional.get());
+        Iterable<Customer> customers = customerService.findCustomerByProvince(provinceOptional.get());
 
         ModelAndView modelAndView = new ModelAndView("/customer/list");
         modelAndView.addObject("customers", customers);

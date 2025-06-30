@@ -1,10 +1,12 @@
 package org.example.model;
 
+import org.springframework.validation.Validator;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-public class User {
+public class User  {
     @NotEmpty
     @Size(min = 2, max = 30, message = "Username must be between 2 and 30 characters")
     private String username;

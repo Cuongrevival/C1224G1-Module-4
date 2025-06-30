@@ -6,32 +6,29 @@ import com.codegym.repository.ICustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class CustomerService {
-    private final ICustomerRepo customerRepo;
-
     @Autowired
-    public CustomerService(ICustomerRepo customerRepo) {
-        this.customerRepo = customerRepo;
-    }
-    public Iterable<Customer> findAll() {
+    private ICustomerRepo customerRepo;
+
+    public List<Customer> getAllCustomers() {
         return customerRepo.findAll();
     }
-
-    public Optional<Customer> findById(Long id) {
+    public Optional<Customer> getCustomerById(Long id) {
         return customerRepo.findById(id);
     }
-    public void save(Customer customer) {
+   public void saveCustomer(Customer customer) {
         customerRepo.save(customer);
-    }
-
-    public void remove(Long id) {
+   }
+    public void deleteCustomer(Long id) {
         customerRepo.deleteById(id);
     }
-
-    public Iterable<Customer> findAllByProvince(Province province) {
-        return customerRepo.findAllByProvince(province);
+    public Iterable<Customer> findCustomerByProvince(Province province) {
+        return customerRepo.findCustomerByProvince(province);
     }
 }

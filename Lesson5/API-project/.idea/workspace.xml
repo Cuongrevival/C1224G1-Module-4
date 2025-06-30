@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f88b804-8af2-4cf4-8d4a-0b8108b338ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../music-project-demo/src/main/resources/music.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson3/customer_management_thymeleaf/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson3/customer_management_thymeleaf/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/AppInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/controller/FeedBackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/controller/FeedBackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/model/FeedBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/model/FeedBack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/repository/IFeedBackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/repository/IFeedBackRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/service/FeedBackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson7/API-project/src/main/java/org/example/service/FeedBackService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lesson9/customer-manage-aspect/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../music-project-demo/src/main/java/com/codegym/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music-project-demo/src/main/java/com/codegym/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../music-project-demo/src/main/java/com/codegym/controller/MusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music-project-demo/src/main/java/com/codegym/controller/MusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../music-project-demo/src/main/java/com/codegym/service/HibernateMusicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music-project-demo/src/main/java/com/codegym/service/HibernateMusicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../music-project-demo/src/main/webapp/WEB-INF/views/listen.html" beforeDir="false" afterPath="$PROJECT_DIR$/../music-project-demo/src/main/webapp/WEB-INF/views/listen.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +94,7 @@
     &quot;Tomcat Server.Tomcat 9.0.102.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Module-4/Bài tập Module 4/Lesson5/API-project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -220,6 +217,9 @@
       <workItem from="1745895332091" duration="4694000" />
       <workItem from="1745901116319" duration="2000" />
       <workItem from="1745901142838" duration="11000" />
+      <workItem from="1749042445518" duration="456000" />
+      <workItem from="1749043697282" duration="404000" />
+      <workItem from="1749210052753" duration="1309000" />
     </task>
     <servers />
   </component>

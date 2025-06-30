@@ -5,28 +5,22 @@ import com.codegym.repository.IProvinceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class ProvinceService {
-   private final IProvinceRepo provinceRepo;
-   @Autowired
-    public ProvinceService(IProvinceRepo provinceRepo) {
-        this.provinceRepo = provinceRepo;
-    }
+    @Autowired
+    private IProvinceRepo provinceRepo;
 
-    public Iterable<Province> findAll() {
+    public Iterable<Province> getAllProvinces() {
         return provinceRepo.findAll();
     }
-
-    public Optional<Province> findById(Long id) {
-       return provinceRepo.findById(id);
+    public Optional<Province> getProvinceById(Long id) {
+        return provinceRepo.findById(id);
     }
-    public void save(Province province) {
+    public void saveProvince(Province province) {
         provinceRepo.save(province);
-    }
-
-    public void remove(Long id) {
-        provinceRepo.deleteById(id);
     }
 }

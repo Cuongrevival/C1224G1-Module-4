@@ -9,7 +9,8 @@
 <p><b>Thể loại:</b> <span th:text="${music.genre}"></span></p>
 
 <audio controls>
-  <source th:src="@{/${music.filePath}}" type="audio/mpeg">
+  <source th:src="@{${music.filePath}}" type="audio/mpeg">
+  Browser does not support the audio tag.
 </audio>
 
 <br/><br/>

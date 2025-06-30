@@ -1,5 +1,6 @@
 package com.codegym.controller;
 
+
 import com.codegym.model.Customer;
 import com.codegym.model.Province;
 import com.codegym.service.CustomerService;
@@ -15,26 +16,18 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
-
-    private final CustomerService customerService;
-    private final ProvinceService provinceService;
     @Autowired
-    public CustomerController(CustomerService customerService, ProvinceService provinceService) {
-        this.customerService = customerService;
-        this.provinceService = provinceService;
-    }
+    private CustomerService customerService;
+
+    @Autowired
+    private ProvinceService provinceService;
 
 
 
-    @ModelAttribute("provinces")
-    public Iterable<Province> listProvinces() {
-        return provinceService.findAll();
-    }
-
-    @GetMapping("")
+    @GetMapping
     public ModelAndView listCustomer() {
         ModelAndView modelAndView = new ModelAndView("/customer/list");
-        Iterable<Customer> customers = customerService.findAll();
+        Iterable<Customer> customers = customerService.getAllCustomers();
         modelAndView.addObject("customers", customers);
         return modelAndView;
     }
@@ -49,27 +42,27 @@ public class CustomerController {
     @PostMapping("/create")
     public String create(@ModelAttribute("customer") Customer customer,
                          RedirectAttributes redirectAttributes) {
-        customerService.save(customer);
+        customerService.saveCustomer(customer);
         redirectAttributes.addFlashAttribute("message", "Create new customer successfully");
         return "redirect:/customers";
     }
 
     @GetMapping("/update/{id}")
     public ModelAndView updateForm(@PathVariable Long id) {
-        Optional<Customer> customer = customerService.findById(id);
+        Optional<Customer> customer = customerService.getCustomerById(id);
         if (customer.isPresent()) {
             ModelAndView modelAndView = new ModelAndView("/customer/update");
             modelAndView.addObject("customer", customer.get());
             return modelAndView;
         } else {
-            return new ModelAndView("error_404");
+            return new ModelAndView("/error_404");
         }
     }
 
     @PostMapping("/update/{id}")
     public String update(@ModelAttribute("customer") Customer customer,
                          RedirectAttributes redirect) {
-        customerService.save(customer);
+        customerService.saveCustomer(customer);
         redirect.addFlashAttribute("message", "Update customer successfully");
         return "redirect:/customers";
     }
@@ -77,8 +70,12 @@ public class CustomerController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id,
                          RedirectAttributes redirect) {
-        customerService.remove(id);
+        customerService.deleteCustomer(id);
         redirect.addFlashAttribute("message", "Delete customer successfully");
         return "redirect:/customers";
+    }
+    @ModelAttribute("provinces")
+    public Iterable<Province> listProvinces() {
+        return provinceService.getAllProvinces();
     }
 }

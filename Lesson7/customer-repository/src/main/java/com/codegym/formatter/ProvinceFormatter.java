@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Component
 public class ProvinceFormatter implements Formatter<Province> {
-
+    @Autowired
     private final ProvinceService provinceService;
 
     @Autowired
@@ -21,7 +21,7 @@ public class ProvinceFormatter implements Formatter<Province> {
 
     @Override
     public Province parse(String text, Locale locale) {
-        Optional<Province> provinceOptional = provinceService.findById(Long.parseLong(text));
+        Optional<Province> provinceOptional = provinceService.getProvinceById(Long.parseLong(text));
         return provinceOptional.orElse(null);
     }
 

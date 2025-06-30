@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog List</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="/ajax/index.js"></script>
+    <link rel="stylesheet" href="/ajax/index.css">
+</head>
+<body>
+<h1>Danh sách bài viết</h1>
+
+<form id="search-form">
+    <input type="text" id="keyword" placeholder="Tìm bài viết...">
+    <button type="submit">Tìm kiếm</button>
+</form>
+
+<div id="post-list"></div>
+
+<button id="load-more">Tải thêm</button>
+</body>
+</html>

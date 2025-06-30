@@ -3,6 +3,7 @@ package com.codegym.controller;
 import com.codegym.model.Music;
 import com.codegym.service.HibernateMusicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,8 @@ public class MusicController {
     public void setMusicService(HibernateMusicService musicService) {
         this.musicService = musicService;
     }
-
+    @Value("${music_file_path}")
+    public String filePath;
     @GetMapping("/music")
     public String list(Model model) {
         List<Music> musics = musicService.findAll();
@@ -39,16 +41,15 @@ public class MusicController {
     public String create(@ModelAttribute Music music,
                          @RequestParam("file") MultipartFile file,
                          HttpServletRequest request) throws IOException {
-        String uploadPath = request.getServletContext().getRealPath("/music/");
-        File uploadDir = new File(uploadPath);
+        File uploadDir = new File(filePath);
         if (!uploadDir.exists()) {
             uploadDir.mkdirs();
         }
 
         String fileName = file.getOriginalFilename();
-        file.transferTo(new File(uploadPath + fileName));
+        file.transferTo(new File(filePath + fileName));
 
-        music.setFilePath("/music/" + fileName);
+        music.setFilePath("/" + fileName);
         musicService.save(music);
         return "redirect:/music";
     }

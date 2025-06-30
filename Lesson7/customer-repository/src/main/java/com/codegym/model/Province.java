@@ -6,18 +6,19 @@ import javax.persistence.*;
 @Table(name = "province")
 public class Province {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    public Province() {
-    }
 
     public Province(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public long getId() {
+    public Province() {
+    }
+
+    public Long getId() {
         return id;
     }
 

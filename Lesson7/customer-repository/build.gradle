@@ -3,7 +3,7 @@ plugins {
     id 'war'
 }
 
-group 'org.example'
+group 'com.codegym'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -48,7 +48,7 @@ dependencies {
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation("mysql:mysql-connector-java:8.0.30")
     // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
-    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.0'
+    implementation("org.springframework.data:spring-data-jpa:1.11.12.RELEASE")
 }
 
 test {

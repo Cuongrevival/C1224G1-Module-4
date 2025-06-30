@@ -54,6 +54,7 @@ dependencies {
     implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.10.Final'
 
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 }
 
 test {

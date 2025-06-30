@@ -16,7 +16,8 @@ public class HibernateMusicService{
     }
 
     public List<Music> findAll() {
-        return musicDAO.findAll();
+    List<Music> musics = musicDAO.findAll();
+        return musics;
     }
 
     public Music findById(int id) {
