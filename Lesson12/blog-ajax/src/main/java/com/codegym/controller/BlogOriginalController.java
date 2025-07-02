@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BlogOriginalController {
     @GetMapping
     public String blog() {
-        return "list/list";
+        return "list";
     }
 }

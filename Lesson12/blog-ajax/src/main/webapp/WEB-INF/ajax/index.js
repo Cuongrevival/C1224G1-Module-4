@@ -4,13 +4,12 @@ const pageSize = 5;
 $(document).ready(function () {
     loadPosts();
 
-    // Gửi form tìm kiếm
     $('#search-form').submit(function (event) {
         event.preventDefault();
         var keyword = $('#keyword').val();
         $.ajax({
             type: 'GET',
-            url: '/api/posts/search',
+            url: '/api/blogs/search',
             data: { keyword: keyword },
             success: function (data) {
                 var content = '';
@@ -35,7 +34,7 @@ $(document).ready(function () {
 function loadPosts() {
     $.ajax({
         type: 'GET',
-        url: '/api/posts',
+        url: '/api/blogs',
         data: { page: currentPage, size: pageSize },
         success: function (data) {
             var content = '';

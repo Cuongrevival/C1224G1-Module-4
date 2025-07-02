@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title th:text="#{customer.create.title}">Create Customer</title>
+</head>
+<body>
+<p>
+    <a href="?lang=en">English</a> | <a href="?lang=vi">Tiếng Việt</a>
+</p>
+<h3 th:text="#{customer.add.heading}">Add Customer</h3>
+<p>
+    <a th:href="@{/customers}" th:text="#{customer.link.back}">Back to customer list</a>
+</p>
+<div id="form">
+    <form th:action="@{/customers/create}" th:object="${customer}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="firstname" th:text="#{customer.firstname}">FirstName</label>
+            <input type="text" id="firstname" th:field="*{firstName}"/>
+        </div>
+        <div>
+            <label for="lastname" th:text="#{customer.lastname}">LastName</label>
+            <input type="text" id="lastname" th:field="*{lastName}"/>
+        </div>
+        <div>
+            <label for="province" th:text="#{customer.province}">Province</label>
+            <select id="province" th:field="*{province}">
+                <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}"></option>
+            </select>
+        </div>
+        <input type="submit" th:value="#{customer.button.save}" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

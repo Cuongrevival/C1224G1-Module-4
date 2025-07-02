@@ -28,11 +28,15 @@ import java.util.Properties;
 @EnableJpaRepositories("com.codegym.repository")
 @ComponentScan(basePackages = "com.codegym")
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
+
     private ApplicationContext applicationContext;
+
+    public AppConfig(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
     }
 
     @Bean
