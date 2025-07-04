@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Tạo bài viết mới</title>
+</head>
+<body>
+<h1>Tạo bài viết mới</h1>
+<form th:action="@{/blogs}" th:object="${blog}" method="post">
+    <div>
+        <label for="title">Tiêu đề:</label>
+        <input type="text" id="title" th:field="*{title}" />
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="content">Nội dung:</label>
+        <textarea id="content" th:field="*{content}" rows="10" cols="50"></textarea>
+        <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="createdDate">Ngày tạo:</label>
+        <input type="date" id="createdDate" th:field="*{createdDate}" />
+        <span th:if="${#fields.hasErrors('createdDate')}" th:errors="*{createdDate}" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="categoryId">Danh mục:</label>
+        <select id="categoryId" name="categoryId">
+            <option value="">Chọn danh mục</option>
+            <option th:each="category : ${categories}"
+                    th:value="${category.id}"
+                    th:text="${category.name}"></option>
+        </select>
+    </div>
+    <button type="submit">Lưu</button>
+    <a th:href="@{/blogs}">Hủy</a>
+</form>
+<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+</body>
+</html>

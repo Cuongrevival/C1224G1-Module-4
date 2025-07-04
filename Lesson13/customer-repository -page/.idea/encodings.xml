@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/com/codegym/configuration/AppConfiguration.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/codegym/controller/CustomerController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/message_vi.properties" charset="UTF-8" />
   </component>
 </project>

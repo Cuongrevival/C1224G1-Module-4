@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title th:text="${category.id} != null ? 'Chỉnh sửa danh mục' : 'Tạo danh mục mới'"></title>
+</head>
+<body>
+<h1 th:text="${category.id} != null ? 'Chỉnh sửa danh mục' : 'Tạo danh mục mới'"></h1>
+
+<form th:action="@{${category.id != null ? '/categories/' + category.id : '/categories'}}"
+      th:object="${category}" method="post">
+
+  <div>
+    <label for="name">Tên danh mục:</label>
+    <input type="text" id="name" th:field="*{name}" />
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red;"></span>
+  </div>
+
+  <!-- Nếu muốn dùng PUT khi cập nhật -->
+  <input type="hidden" name="_method" value="put" th:if="${category.id != null}" />
+
+  <button type="submit">Lưu</button>
+  <a th:href="@{/categories}">Hủy</a>
+</form>
+
+<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+</body>
+</html>

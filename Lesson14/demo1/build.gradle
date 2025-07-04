@@ -23,6 +23,19 @@ tasks.withType(JavaCompile) {
 
 dependencies {
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
+    implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.8.0'
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
+    implementation group: 'org.springframework.security', name: 'spring-security-config', version: '5.8.0'
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+    implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.8.0'
+    // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
+    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.1.0.RELEASE'
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+    implementation("org.thymeleaf:thymeleaf-spring5:3.1.1.RELEASE")
+    // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
+    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.1.0")
+    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     implementation("org.springframework:spring-webmvc:5.3.23")
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
     implementation("org.hibernate:hibernate-core:5.6.10.Final")
@@ -44,18 +57,6 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.30")
     // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
     implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.0'
-
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.2'
-    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
-    implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.8.0'
-// https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
-    implementation group: 'org.springframework.security', name: 'spring-security-config', version: '5.8.0'
-// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
-    implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.8.0'
-    // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
-    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.1.0.RELEASE'
-
 }
 
 test {

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title>Chi tiết danh mục</title>
+</head>
+<body>
+<h1>Chi tiết danh mục</h1>
+<p><strong>ID:</strong> <span th:text="${category.id}"></span></p>
+<p><strong>Tên:</strong> <span th:text="${category.name}"></span></p>
+<a th:href="@{/categories}">Quay lại danh sách</a> |
+<a th:href="@{/categories/{id}/edit(id=${category.id})}">Sửa</a>
+</body>
+</html>
