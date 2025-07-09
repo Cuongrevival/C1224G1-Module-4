@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head><title>Lịch sử đơn hàng</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"></head>
+<body>
+
+<div th:replace="layout/navbar :: navbar"></div>
+
+<h2>Lịch sử mua hàng</h2>
+
+<div th:if="${orders.isEmpty()}">
+    <p>Bạn chưa mua đồng hồ nào cả.</p>
+</div>
+
+<table th:if="${!orders.isEmpty()}" border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Ngày mua</th>
+        <th>Địa chỉ</th>
+        <th>Thanh toán</th>
+        <th>Trạng thái</th>
+        <th>Tổng tiền</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${#temporals.format(order.createdAt, 'dd/MM/yyyy HH:mm')}"></td>
+        <td th:text="${order.shippingAddress}"></td>
+        <td th:text="${order.paymentMethod}"></td>
+        <td th:text="${order.status}"></td>
+        <td th:text="${order.totalPrice}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

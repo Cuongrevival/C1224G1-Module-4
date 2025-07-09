@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><title>Thanh toán</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<div th:replace="layout/navbar :: navbar"></div>
+
+<h2>Thông tin thanh toán</h2>
+
+<form th:action="@{/order/checkout}" method="post">
+  <label>Địa chỉ nhận hàng:</label><br>
+  <input type="text" name="address" required><br><br>
+
+  <label>Phương thức thanh toán:</label><br>
+  <select name="paymentMethod" required>
+    <option th:each="method : ${paymentMethods}"
+            th:value="${method}" th:text="${method}"></option>
+  </select><br><br>
+
+  <button type="submit">Đặt mua</button>
+</form>
+
+</body>
+</html>

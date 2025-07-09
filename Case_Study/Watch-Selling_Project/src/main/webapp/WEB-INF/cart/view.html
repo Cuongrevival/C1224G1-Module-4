@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head><title>Giỏ hàng</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}"></head>
+<body>
+<div th:replace="layout/navbar :: navbar"></div>
+
+<h2>Giỏ hàng của bạn</h2>
+
+<div th:if="${items.isEmpty()}">
+  <p>Chưa có sản phẩm nào trong giỏ hàng.</p>
+</div>
+
+<table th:if="${!items.isEmpty()}" border="1" cellpadding="10">
+  <thead>
+  <tr>
+    <th>Sản phẩm</th>
+    <th>Giá</th>
+    <th>Số lượng</th>
+    <th>Tổng</th>
+    <th>Xoá</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="item : ${items}">
+    <td th:text="${item.watch.name}"></td>
+    <td th:text="${item.watch.price}"></td>
+    <td th:text="${item.quantity}"></td>
+    <td th:text="${item.totalPrice}"></td>
+    <td><a th:href="@{/cart/remove/{id}(id=${item.watch.id})}">Xoá</a></td>
+  </tr>
+  </tbody>
+</table>
+
+<div th:if="${!items.isEmpty()}">
+  <p><strong>Tổng cộng:</strong> <span th:text="${total}"></span></p>
+  <a th:href="@{/order/checkout}">🛒 Tiến hành đặt hàng</a>
+</div>
+</body>
+</html>

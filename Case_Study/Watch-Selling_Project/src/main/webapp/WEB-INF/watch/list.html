@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <title th:fragment="title">Sản phẩm</title>
+</head>
+<body>
+<div th:fragment="body">
+  <form class="d-flex mb-3" th:action="@{/watches}" method="get">
+    <input class="form-control me-2" type="search" name="keyword" th:value="${keyword}" placeholder="Tìm kiếm hãng..." />
+    <button class="btn btn-outline-primary" type="submit">Tìm</button>
+  </form>
+
+  <div class="row">
+    <div class="col-md-3 mb-4" th:each="watch : ${watches}">
+      <div class="card h-100">
+        <img class="card-img-top" th:src="${watch.imageUrl}" alt="watch image">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${watch.name}">Tên</h5>
+          <p class="card-text" th:text="'Hãng: ' + ${watch.brand}"></p>
+          <p class="card-text" th:text="${watch.price} + ' đ'"></p>
+          <p th:if="${watch.quantity > 0}" class="text-success" th:text="'Còn: ' + ${watch.quantity}"></p>
+          <p th:if="${watch.quantity == 0}" class="text-danger">Hết hàng</p>
+        </div>
+        <div class="card-footer text-center" th:if="${watch.quantity > 0}">
+          <a th:href="@{/cart/add/{id}(id=${watch.id})}" class="btn btn-sm btn-success">➕ Giỏ hàng</a>
+          <a th:href="@{/order/buy/{id}(id=${watch.id})}" class="btn btn-sm btn-primary">🛒 Mua ngay</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <nav th:if="${totalPages > 1}">
+    <ul class="pagination justify-content-center mt-4">
+      <li class="page-item" th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+          th:classappend="${i == currentPage} ? 'active'">
+        <a class="page-link" th:href="@{/watches(page=${i}, keyword=${keyword})}" th:text="${i + 1}"></a>
+      </li>
+    </ul>
+  </nav>
+</div>
+</body>
+</html>

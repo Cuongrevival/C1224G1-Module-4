@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h2>Create an Account</h2>
+
+<div th:if="${error}" style="color:red" th:text="${error}"></div>
+
+<form th:action="@{/register}" method="post" th:object="${customer}">
+  <label>Full Name:</label><br>
+  <input type="text" th:field="*{fullName}" placeholder="Your full name" required><br>
+
+  <label>Username:</label><br>
+  <input type="text" th:field="*{username}" placeholder="Choose a username" required><br>
+
+  <label>Password:</label><br>
+  <input type="password" th:field="*{password}" placeholder="Choose a password" required
+         oninput="checkStrength(this.value)">
+  <span id="strengthMsg"></span><br>
+
+  <label>Confirm Password:</label><br>
+  <input type="password" name="confirmPassword" placeholder="Re-enter your password" required><br>
+
+  <label>Phone Number:</label><br>
+  <input type="text" th:field="*{phone}" placeholder="Your phone number"><br>
+
+  <label><input type="checkbox" name="agree"> I agree to the store's terms and conditions</label><br>
+
+  <button type="submit">Register</button>
+</form>
+
+<script>
+  function checkStrength(password) {
+    let msg = document.getElementById("strengthMsg");
+    if (password.length < 6) msg.textContent = "Weak";
+    else if (password.length < 10) msg.textContent = "Medium";
+    else msg.textContent = "Strong";
+  }
+</script>
+
+<p>Already have an account? <a th:href="@{/login}">Login</a></p>
+</body>
+</html>
