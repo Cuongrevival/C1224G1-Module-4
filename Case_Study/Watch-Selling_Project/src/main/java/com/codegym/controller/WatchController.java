@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,5 +43,15 @@ public class WatchController {
 
         return "watch/list";
     }
+    @GetMapping("/{id}")
+    public String viewWatchDetail(@PathVariable Long id, Model model) {
+        Watch watch = watchService.findById(id).orElseThrow(() -> new RuntimeException("Không tìm thấy sản phẩm với ID = " + id));
+        if (watch == null) {
+            return "redirect:watch/list"; // hoặc trang 404
+        }
+        model.addAttribute("watch", watch);
+        return "watch/watch";
+    }
+
 }
 

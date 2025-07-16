@@ -38,5 +38,10 @@ public class WatchServiceImpl implements WatchService {
     public void save(Watch watch) {
         watchRepository.save(watch);
     }
+
+    @Override
+    public void delete(Watch watch) {
+        watchRepository.delete(watch);
+    }
 }
 

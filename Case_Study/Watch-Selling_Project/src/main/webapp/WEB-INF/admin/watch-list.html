@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý đồng hồ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<div th:replace="layout/navbar :: navbar"></div>
+
+<div class="container mt-4">
+    <h2>🕰️ Quản lý đồng hồ</h2>
+    <a class="btn btn-primary mb-3" th:href="@{/admin/watches/create}">➕ Thêm đồng hồ</a>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Hãng</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="watch : ${watches.content}">
+            <td th:text="${watch.name}"></td>
+            <td th:text="${watch.brand}"></td>
+            <td th:text="${#numbers.formatDecimal(watch.price, 0, 'POINT', 2, 'COMMA')} + '₫'"></td>
+            <td th:text="${watch.quantity}"></td>
+            <td>
+                <a class="btn btn-sm btn-warning" th:href="@{/admin/watches/edit/{id}(id=${watch.id})}">✏️ Sửa</a>
+                <a class="btn btn-sm btn-danger" th:href="@{/admin/watches/delete/{id}(id=${watch.id})}"
+                   onclick="return confirm('Bạn có chắc chắn muốn xóa?')">🗑️ Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

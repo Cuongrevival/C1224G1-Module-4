@@ -11,4 +11,7 @@ public interface OrderService {
     Order placeOrder(Customer customer, List<CartItem> cartItems, String address, PaymentMethod method);
     List<Order> findOrdersByCustomer(Customer customer);
     Order findById(Long id);
+    void delete(Order order);
+    void save(Order order);
+
 }

@@ -1,37 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <link rel="stylesheet" th:href="@{/css/styles.css}">
-  <title th:fragment="title">Sản phẩm</title>
+  <meta charset="UTF-8">
+  <title>Danh sách đồng hồ</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
 </head>
-<body>
-<div th:fragment="body">
-  <form class="d-flex mb-3" th:action="@{/watches}" method="get">
-    <input class="form-control me-2" type="search" name="keyword" th:value="${keyword}" placeholder="Tìm kiếm hãng..." />
-    <button class="btn btn-outline-primary" type="submit">Tìm</button>
-  </form>
 
+<body>
+<!-- Navbar -->
+<div th:replace="layout/navbar :: navbar"></div>
+
+<!-- Main content -->
+<div class="container mt-4" th:fragment="body">
   <div class="row">
     <div class="col-md-3 mb-4" th:each="watch : ${watches}">
-      <div class="card h-100">
-        <img class="card-img-top" th:src="${watch.imageUrl}" alt="watch image">
+      <div class="card h-100 shadow-sm border-0">
+
+        <!-- Ảnh dẫn đến chi tiết -->
+        <a th:href="@{/watches/{id}(id=${watch.id})}">
+          <img class="card-img-top" th:src="${watch.imageUrl}" alt="watch image" style="height: 200px; object-fit: cover;">
+        </a>
+
         <div class="card-body">
-          <h5 class="card-title" th:text="${watch.name}">Tên</h5>
-          <p class="card-text" th:text="'Hãng: ' + ${watch.brand}"></p>
-          <p class="card-text" th:text="${watch.price} + ' đ'"></p>
-          <p th:if="${watch.quantity > 0}" class="text-success" th:text="'Còn: ' + ${watch.quantity}"></p>
-          <p th:if="${watch.quantity == 0}" class="text-danger">Hết hàng</p>
+          <!-- Tên đồng hồ dẫn đến chi tiết -->
+          <h5 class="card-title">
+            <a th:href="@{/watches/{id}(id=${watch.id})}"
+               th:text="${watch.name}"
+               class="text-decoration-none text-dark fw-bold">
+            </a>
+          </h5>
+
+          <p class="card-text" th:text="'Hãng: ' + ${watch.brand}">Hãng</p>
+          <p class="card-text fw-semibold text-danger" th:text="${#numbers.formatDecimal(watch.price, 0, 'COMMA', 0, 'POINT')} + ' đ'"></p>
+
+          <p th:if="${watch.quantity > 0}" class="text-success fw-semibold" th:text="'Số lượng: ' + ${watch.quantity}"></p>
+          <p th:if="${watch.quantity == 0}" class="text-danger fw-semibold">Hết hàng</p>
         </div>
-        <div class="card-footer text-center" th:if="${watch.quantity > 0}">
-          <a th:href="@{/cart/add/{id}(id=${watch.id})}" class="btn btn-sm btn-success">➕ Giỏ hàng</a>
+
+        <!-- Footer: nút hành động -->
+        <div class="card-footer bg-white text-center border-0" th:if="${watch.quantity > 0}">
+          <a th:href="@{/cart/add/{id}(id=${watch.id})}" class="btn btn-sm btn-outline-success me-2">➕ Giỏ hàng</a>
           <a th:href="@{/order/buy/{id}(id=${watch.id})}" class="btn btn-sm btn-primary">🛒 Mua ngay</a>
         </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Pagination -->
+  <!-- Phân trang -->
   <nav th:if="${totalPages > 1}">
     <ul class="pagination justify-content-center mt-4">
       <li class="page-item" th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
@@ -41,5 +58,9 @@
     </ul>
   </nav>
 </div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

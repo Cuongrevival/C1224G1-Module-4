@@ -11,4 +11,5 @@ public interface WatchService {
     List<Watch> searchByBrand(String keyword);
     Optional<Watch> findById(Long id);
     void save(Watch watch);
+    void delete(Watch watch);
 }

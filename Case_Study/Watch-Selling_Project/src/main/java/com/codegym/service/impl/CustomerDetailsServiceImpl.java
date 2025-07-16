@@ -1,6 +1,5 @@
 package com.codegym.service.impl;
 
-import com.codegym.model.Customer;
 import com.codegym.repository.ICustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
