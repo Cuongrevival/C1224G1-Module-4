@@ -25,9 +25,13 @@
 
   <div class="mb-3">
     <label for="category" class="form-label">Loại sản phẩm</label>
-    <select class="form-select" th:field="*{category}" id="category">
+    <!-- Đã sửa: field là category.cid -->
+    <select class="form-select" th:field="*{category.cid}" id="category">
       <option value="">-- Chọn loại sản phẩm --</option>
-      <option th:each="c : ${categories}" th:value="${c}" th:text="${c.name}"></option>
+      <option th:each="c : ${categories}"
+              th:value="${c.cid}"
+              th:text="${c.name}">
+      </option>
     </select>
     <div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
   </div>

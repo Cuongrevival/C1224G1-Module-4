@@ -69,7 +69,7 @@ public class ProductController {
 
         productService.save(product);
         redirectAttributes.addFlashAttribute("message", "✅ Thêm sản phẩm thành công!");
-        return "redirect:/products?page=0";
+        return "redirect:/products";
     }
 
     @GetMapping("/edit/{id}")
@@ -99,7 +99,7 @@ public class ProductController {
 
         productService.save(product);
         redirectAttributes.addFlashAttribute("message", "✅ Cập nhật sản phẩm thành công!");
-        return "redirect:/products?page=0";
+        return "redirect:/products";
     }
 
     // ✅ Xóa nhiều sản phẩm được chọn
@@ -112,6 +112,6 @@ public class ProductController {
         } else {
             redirectAttributes.addFlashAttribute("message", "⚠️ Vui lòng chọn sản phẩm để xóa!");
         }
-        return "redirect:/products?page=0";
+        return "redirect:/products";
     }
 }
