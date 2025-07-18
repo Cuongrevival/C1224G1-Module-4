@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Quản lý sản phẩm đấu giá</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    .form-inline .form-control {
+      width: auto;
+      display: inline-block;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+  <h4 class="mb-3">🔍 Tìm kiếm sản phẩm</h4>
+
+  <form method="get" th:action="@{/products}" class="row g-3 align-items-center mb-3">
+    <div class="col-md-3">
+      <input type="text" name="name" th:value="${name}" placeholder="Nhập tên sản phẩm"
+             class="form-control">
+    </div>
+    <div class="col-md-2">
+      <input type="number" name="price" th:value="${price}" placeholder="Nhập giá bắt đầu"
+             class="form-control">
+    </div>
+    <div class="col-md-2">
+      <select name="categoryId" class="form-control">
+        <option th:value="" th:selected="${categoryId == null or categoryId == ''}">--Chọn--</option>
+        <option th:each="c : ${categories}"
+                th:value="${c.cid}"
+                th:text="${c.name}"
+                th:selected="${categoryId == ${c.cid}}"></option>
+      </select>
+
+    </div>
+    <div class="col-md-1">
+      <input type="checkbox" onclick="location.href='@{/products}'"/> Xóa tìm kiếm
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary">🔍 Tìm</button>
+    </div>
+    <div class="col-md-2 text-end">
+      <a class="btn btn-dark" th:href="@{/products/create}">➕ Thêm Sản Phẩm</a>
+    </div>
+  </form>
+
+  <!-- Bảng danh sách -->
+  <form method="post" th:action="@{/products/delete}">
+    <table class="table table-bordered table-striped">
+      <thead class="table-primary">
+      <tr>
+        <th>STT</th>
+        <th>Chọn</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Giá bắt đầu</th>
+        <th>Loại sản phẩm</th>
+        <th>Tình trạng</th>
+        <th>Hành động</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="p, iter : ${productPage.content}">
+        <td th:text="${iter.index + 1 + productPage.number * productPage.size}">1</td>
+        <td><input type="checkbox" name="ids" th:value="${p.id}"/></td>
+        <td th:text="${p.name}">iPhone</td>
+        <td th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'COMMA')} + ' VND'">120.000 VND</td>
+        <td th:text="${p.category.name}">Điện thoại</td>
+        <td th:text="${p.status}">Chờ duyệt</td>
+        <td>
+          <a class="btn btn-link" th:href="@{/products/edit/{id}(id=${p.id})}">✏️ Sửa</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-danger"
+              onclick="return confirm('Bạn có muốn xóa tất cả sản phẩm đã chọn?')">🗑️ Xóa
+      </button>
+    </div>
+  </form>
+
+  <!-- Phân trang -->
+  <nav th:if="${productPage.totalPages > 1}" class="mt-3">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" th:classappend="${productPage.first} ? 'disabled'">
+        <a class="page-link"
+           th:href="@{/products(page=${productPage.number - 1}, name=${name}, price=${price}, categoryId=${categoryId})}">«</a>
+      </li>
+      <li th:each="i : ${#numbers.sequence(0, productPage.totalPages - 1)}"
+          class="page-item" th:classappend="${i == productPage.number} ? 'active'">
+        <a class="page-link"
+           th:href="@{/products(page=${i}, name=${name}, price=${price}, categoryId=${categoryId})}"
+           th:text="${i + 1}">1</a>
+      </li>
+      <li class="page-item" th:classappend="${productPage.last} ? 'disabled'">
+        <a class="page-link"
+           th:href="@{/products(page=${productPage.number + 1}, name=${name}, price=${price}, categoryId=${categoryId})}">»</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+</body>
+</html>
