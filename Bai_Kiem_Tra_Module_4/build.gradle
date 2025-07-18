@@ -49,6 +49,11 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.30")
     // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
     implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.0'
+
+    // https://mvnrepository.com/artifact/javax.validation/validation-api
+    implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.10.Final'
 }
 
 test {

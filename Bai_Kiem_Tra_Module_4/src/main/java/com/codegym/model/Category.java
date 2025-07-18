@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "category")
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cid;
@@ -12,9 +13,7 @@ public class Category {
     @Column(nullable = false)
     private String name;
 
-    public Category() {
-    }
-
+    // Getters and Setters
     public Long getCid() {
         return cid;
     }

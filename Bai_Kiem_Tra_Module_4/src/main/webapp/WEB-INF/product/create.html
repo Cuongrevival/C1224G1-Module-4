@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Thêm sản phẩm</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <title>Thêm sản phẩm đấu giá</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
 </head>
-<body>
-<div class="container mt-4">
-  <h2>➕ Thêm sản phẩm</h2>
-  <form th:action="@{/products/save}" th:object="${product}" method="post">
-    <div class="mb-3">
-      <label>Tên sản phẩm</label>
-      <input type="text" class="form-control" th:field="*{name}" required minlength="5" maxlength="50">
-    </div>
-    <div class="mb-3">
-      <label>Giá khởi điểm</label>
-      <input type="number" class="form-control" th:field="*{price}" min="100000" required>
-    </div>
-    <div class="mb-3">
-      <label>Tình trạng</label>
-      <input type="text" class="form-control" th:field="*{status}" required>
-    </div>
-    <div class="mb-3">
-      <label>Loại sản phẩm</label>
-      <select class="form-control" th:field="*{category}" required>
-        <option th:each="c : ${categories}" th:value="${c}" th:text="${c.name}"></option>
-      </select>
-    </div>
-    <button class="btn btn-primary">💾 Lưu</button>
-    <a class="btn btn-secondary" th:href="@{/products}">⬅️ Quay lại</a>
-  </form>
-</div>
+<body class="container mt-4">
+
+<h3>➕ Thêm sản phẩm mới</h3>
+
+<form th:action="@{/products/create}" th:object="${product}" method="post">
+  <div class="mb-3">
+    <label for="name" class="form-label">Tên sản phẩm</label>
+    <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Nhập tên sản phẩm">
+    <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Giá khởi điểm</label>
+    <input type="number" th:field="*{price}" class="form-control" id="price" placeholder="Ví dụ: 150000">
+    <div class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="category" class="form-label">Loại sản phẩm</label>
+    <select class="form-select" th:field="*{category}" id="category">
+      <option value="">-- Chọn loại sản phẩm --</option>
+      <option th:each="c : ${categories}" th:value="${c}" th:text="${c.name}"></option>
+    </select>
+    <div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="status" class="form-label">Tình trạng</label>
+    <input type="text" th:field="*{status}" class="form-control" id="status" placeholder="Ví dụ: Đang mở">
+    <div class="text-danger" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
+  </div>
+
+  <div class="d-flex gap-2">
+    <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+    <a th:href="@{/products}" class="btn btn-secondary">Quay lại</a>
+  </div>
+</form>
+
 </body>
 </html>

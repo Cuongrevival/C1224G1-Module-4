@@ -1,22 +1,26 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50, nullable = false)
+    @NotBlank(message = "Tên sản phẩm không được để trống")
+    @Size(min = 5, max = 50, message = "Tên sản phẩm phải từ 5 đến 50 ký tự")
     private String name;
 
-    @Column(nullable = false)
+    @NotNull(message = "Giá khởi điểm không được để trống")
+    @Min(value = 100000, message = "Giá khởi điểm phải từ 100.000 trở lên")
     private Double price;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Tình trạng không được để trống")
     private String status;
 
     @ManyToOne
@@ -24,7 +28,6 @@ public class Product {
     private Category category;
 
     // Getters and Setters
-
     public Long getId() {
         return id;
     }

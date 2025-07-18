@@ -15,36 +15,26 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    private IProductRepo productRepository;
+    private IProductRepo productRepo;
+    @Override
+    public Page<Product> searchProducts(String name, Double price, Long categoryId, Pageable pageable) {
+        return productRepo.search(name, price, categoryId, pageable);
+    }
 
     @Override
-    public Page<Product> search(String name, Double price, Long categoryId, Pageable pageable) {
-        if (name == null) name = "";
-        if (price == null && categoryId == null) {
-            return productRepository.findByNameContainingIgnoreCase(name, pageable);
-        } else if (price == null) {
-            return productRepository.findByNameContainingIgnoreCaseAndCategory_Cid(name, categoryId, pageable);
-        } else if (categoryId == null) {
-            return productRepository.findByNameContainingIgnoreCaseAndPriceGreaterThanEqual(name, price, pageable);
-        } else {
-            return productRepository.findByNameContainingIgnoreCaseAndCategory_CidAndPriceGreaterThanEqual(
-                    name, categoryId, price, pageable
-            );
+    public Product save(Product product) {
+        return productRepo.save(product);
+    }
+
+    @Override
+    public void deleteByIds(List<Long> ids) {
+        if (ids != null && !ids.isEmpty()) {
+            productRepo.deleteAllById(ids);
         }
     }
 
     @Override
     public Optional<Product> findById(Long id) {
-        return productRepository.findById(id);
-    }
-
-    @Override
-    public void save(Product product) {
-        productRepository.save(product);
-    }
-
-    @Override
-    public void deleteByIds(List<Long> ids) {
-        productRepository.deleteAllById(ids);
+        return productRepo.findById(id);
     }
 }

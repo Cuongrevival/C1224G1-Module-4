@@ -8,12 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {
-
-    Page<Product> search(String name, Double price, Long categoryId, Pageable pageable);
-
-    Optional<Product> findById(Long id);
-
-    void save(Product product);
-
+    Page<Product> searchProducts(String name, Double price, Long categoryId, Pageable pageable);
+    Product save(Product product);
     void deleteByIds(List<Long> ids);
+    Optional<Product> findById(Long id);
 }
